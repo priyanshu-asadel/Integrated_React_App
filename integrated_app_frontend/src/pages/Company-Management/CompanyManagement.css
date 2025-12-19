@@ -1,0 +1,546 @@
+:root {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2c2c2c;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-muted: #6b7280;
+  --accent-color: #4fc3f7;
+  --accent-hover: #03a9f4;
+  --danger-color: #ff6b6b;
+  --success-color: #4caf50;
+  --border-color: #444;
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 8px;
+  --gradient-primary: linear-gradient(135deg, #4fc3f7 0%, #0288d1 100%);
+}
+
+.company-dashboard-container {
+  padding: 16px;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+}
+
+.company-main-content {
+  padding: 16px;
+}
+
+.company-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.company-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.company-header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.company-refresh-btn {
+  background-color: var(--bg-tertiary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.company-settings-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+.company-tab-btn {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.company-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.company-tab-btn.active {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.company-tab-pane {
+  display: none;
+}
+
+.company-tab-pane.active {
+  display: block;
+}
+
+.company-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.company-section-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.company-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.company-settings-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.company-settings-table th,
+.company-settings-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.company-settings-table th {
+  background-color: var(--bg-tertiary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.company-settings-table tr:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.company-settings-table td:nth-child(4) {
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.company-access-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.company-access-tag {
+  background-color: rgba(74, 111, 165, 0.2);
+  color: var(--accent-color);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+.company-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.company-edit {
+  color: #4da6ff;
+}
+
+.company-delete {
+  color: #ff6666;
+}
+
+.company-action-btn:hover {
+  opacity: 0.8;
+}
+
+.company-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.company-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.company-btn-primary {
+  background-color: #4caf50;
+  color: white;
+}
+
+.company-btn-secondary {
+  background-color: #757575;
+  color: white;
+}
+
+.company-prev-page,
+.company-next-page {
+  background-color: #333;
+}
+
+.company-page-info {
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.company-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.company-form-container {
+  margin: 0 auto;
+  padding: 2rem;
+  background: #2a2a2a;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+}
+
+.company-form-container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.company-form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.company-form-group label {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.company-form-group .company-error {
+  color: var(--danger-color);
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.company-form-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.company-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  position: relative;
+}
+
+.company-close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 24px;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.company-close-button:hover {
+  color: #f44336;
+}
+
+.company-custom-dialog-container .MuiDialog-paper {
+  padding: 0;
+  border-radius: 10px;
+  background-color: #2a2a2a;
+  min-width: 600px;
+}
+
+.company-custom-dialog-container .MuiDialogTitle-root {
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.company-custom-dialog-container .MuiDialogContent-root {
+  padding: 0;
+}
+
+/* Enhanced Selection Styles */
+.company-input .MuiInputBase-input {
+  background-color: #2a2a2a !important;
+  color: var(--text-primary) !important;
+  border-radius: 4px;
+}
+
+.company-input .MuiInputBase-root {
+  background-color: #2a2a2a !important;
+}
+
+.company-input.Mui-error .MuiInputBase-input {
+  border: 1px solid var(--danger-color);
+}
+
+.company-input-label {
+  color: var(--text-primary) !important;
+}
+
+/* Enhanced Menu Item Styles with Tick Marks - Keep original colors */
+.company-menu-item {
+  color: var(--text-primary) !important;
+  background-color: #2a2a2a !important;
+  position: relative;
+  padding: 12px 16px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.company-menu-item:hover {
+  background-color: rgba(79, 195, 247, 0.1) !important;
+}
+
+/* Remove background color change for selected items, keep only tick mark */
+.company-menu-item.Mui-selected {
+  background-color: #2a2a2a !important; /* Keep original background */
+  color: var(--text-primary) !important; /* Keep original text color */
+  border-left: 3px solid var(--accent-color);
+}
+
+/* Tick mark for selected items */
+.company-menu-item.Mui-selected::after {
+  content: "✓";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--success-color);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Multiple Select Chip Styles */
+.company-multiple-select .MuiSelect-select {
+  padding: 12px 14px;
+  min-height: 20px;
+}
+
+.company-chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.company-selection-chip {
+  background: rgba(79, 195, 247, 0.2);
+  color: var(--accent-color);
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(79, 195, 247, 0.3);
+}
+
+.company-selection-chip .company-chip-tick {
+  color: var(--success-color);
+  font-size: 12px;
+}
+
+/* Enhanced Select Dropdown */
+.company-select-dropdown .MuiPaper-root {
+  background-color: #2a2a2a !important;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+.company-select-dropdown .MuiList-padding {
+  padding: 8px 0;
+}
+
+/* Selection Counter */
+.company-selection-counter {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* Checkbox Style Selection */
+.company-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.company-checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-color);
+}
+
+.company-checkbox-label {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+/* Enhanced Form Controls */
+.company-form-control {
+  position: relative;
+}
+
+.company-form-control .company-selection-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  min-height: 40px;
+}
+
+/* Selection Summary */
+.company-selection-summary {
+  background: rgba(79, 195, 247, 0.1);
+  border: 1px solid rgba(79, 195, 247, 0.3);
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 8px;
+}
+
+.company-selection-summary h4 {
+  margin: 0 0 8px 0;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+}
+
+.company-selection-summary ul {
+  margin: 0;
+  padding-left: 16px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .company-form-container {
+    padding: 1.5rem;
+  }
+
+  .company-settings-table th,
+  .company-settings-table td {
+    padding: 8px;
+  }
+
+  .company-form-group {
+    margin-bottom: 1rem;
+  }
+
+  .company-custom-dialog-container .MuiDialog-paper {
+    min-width: 90vw;
+    margin: 16px;
+  }
+
+  .company-menu-item {
+    padding: 10px 12px !important;
+  }
+
+  .company-chip-container {
+    gap: 4px;
+  }
+
+  .company-selection-chip {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 480px) {
+  .company-form-container {
+    padding: 1rem;
+  }
+
+  .company-menu-item {
+    padding: 8px 10px !important;
+    font-size: 0.9rem;
+  }
+
+  .company-menu-item.Mui-selected::after {
+    right: 10px;
+    font-size: 14px;
+  }
+
+  .company-selection-summary {
+    padding: 8px;
+  }
+}
+
+/* Selection Animation */
+@keyframes selectionTick {
+  0% {
+    transform: translateY(-50%) scale(0);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.2);
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.company-menu-item.Mui-selected::after {
+  animation: selectionTick 0.3s ease-out;
+}
+
+/* Focus States for Accessibility */
+.company-menu-item:focus {
+  /* background-color: rgba(79, 195, 247, 0.15) !important; */
+  outline: 2px solid var(--accent-color);
+  outline-offset: -2px;
+}
+
+/* Custom Scrollbar for Select Dropdown */
+.company-select-dropdown .MuiList-root::-webkit-scrollbar {
+  width: 6px;
+}
+
+.company-select-dropdown .MuiList-root::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.company-select-dropdown .MuiList-root::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 3px;
+}
+
+.company-select-dropdown .MuiList-root::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}

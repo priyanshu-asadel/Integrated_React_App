@@ -1,0 +1,224 @@
+/* -------------------------------------------------
+   SCOPED STYLES – only affect AreaManagement page
+   (all classes prefixed with area-)
+   ------------------------------------------------- */
+
+/* Root wrapper */
+.area-area-management-page {
+  padding: 20px;
+  color: var(--text-primary, #fff);
+}
+
+/* Header */
+.area-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.area-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.area-refresh-btn {
+  background: var(--bg-tertiary, #333);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--text-secondary, #aaa);
+}
+
+/* Tabs */
+.area-settings-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color, #444);
+  margin-bottom: 20px;
+}
+.area-tab-btn {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--text-secondary, #aaa);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.area-tab-btn:hover { color: var(--text-primary, #fff); }
+.area-tab-btn.active {
+  color: var(--accent-color, #2196f3);
+  border-bottom-color: var(--accent-color, #2196f3);
+}
+
+/* Section header */
+.area-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.area-section-header h2 {
+  margin: 0;
+  color: var(--text-primary, #fff);
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+/* Buttons – generic */
+.area-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 40px;
+  max-width: 120px;
+  white-space: nowrap;
+}
+.area-btn i { font-size: 1rem; line-height: 1; }
+
+/* Primary */
+.area-btn-primary { background:#2196f3; color:#fff; }
+.area-btn-primary:hover { background:#2196f3; }
+
+/* Secondary */
+.area-btn-secondary { background:#757575; color:#fff; }
+.area-btn-secondary:hover { background:#616161; }
+
+/* Filter buttons */
+.area-apply-filters { background:#2196f3; color:#fff; width: 100px; }
+.area-apply-filters:hover { background:#1976d2; }
+.area-reset-filters { background:#f44336; color:#fff; width: 100px}
+.area-reset-filters:hover { background:#d32f2f; }
+
+/* Filters */
+/* container */
+.area-filters-section {
+  background: var(--bg-tertiary, #2a2a2a);
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; /* top row (filters) + bottom row (search + actions) */
+  gap: 12px;
+}
+
+/* Top row: grid of filter items
+   - auto-fit with minmax ensures:
+     - 1 item -> full width
+     - 2 items -> half / half
+     - >2 -> divide equally
+*/
+.area-filters-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  width: 100%;
+}
+
+/* Each filter-group inside the grid */
+.area-filter-group { min-width: 0; } /* allow shrinking */
+.area-filter-group label {
+  display:block;
+  margin-bottom:8px;
+  font-size:0.9rem;
+  color:var(--text-secondary, #bbb);
+}
+.area-filter-group select {
+  width:100%;
+  padding:8px 12px;
+  background:var(--bg-secondary, #3a3a3a);
+  border:1px solid var(--border-color, #555);
+  border-radius:4px;
+  color:var(--text-primary, #fff);
+}
+
+/* Bottom row: search + action buttons */
+.area-filters-bottom {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Search element stretches to take remaining space; on small screens it will wrap */
+.area-filter-search {
+  flex: 1 1 300px;
+  min-width: 160px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color, #555);
+  background: var(--bg-secondary, #3a3a3a);
+  color: var(--text-primary, #fff);
+}
+
+/* Group for action buttons on the right of search */
+.area-filters-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Table */
+.area-settings-table { width:100%; border-collapse:collapse; margin-bottom:20px; }
+.area-settings-table th,
+.area-settings-table td {
+  padding:12px 15px;
+  text-align:left;
+  border-bottom:1px solid var(--border-color, #444);
+}
+.area-settings-table th {
+  background:var(--bg-tertiary, #333);
+  font-weight:600;
+  text-transform:uppercase;
+  font-size:0.8rem;
+  letter-spacing:0.5px;
+}
+.area-settings-table tr:hover { background:var(--bg-tertiary, #333); }
+
+/* Action icons */
+.area-action-btn {
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-size:16px;
+  margin-right:8px;
+}
+.area-action-btn.edit   { color:#4da6ff; }
+.area-action-btn.delete { color:#ff6666; }
+
+/* Pagination */
+.area-pagination {
+  margin-top:20px;
+  text-align:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+.area-pagination button {
+  background:#333;
+  color:#fff;
+  border:none;
+  padding:6px 12px;
+  border-radius:4px;
+  cursor:pointer;
+}
+.area-pagination button:disabled {
+  opacity:0.5;
+  cursor:not-allowed;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .area-section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .area-filters-bottom { flex-direction: column; align-items: stretch; }
+  .area-filters-actions { justify-content: flex-start; }
+  .area-btn { max-width: 100%; }
+}

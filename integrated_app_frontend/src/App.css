@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+}
+
+.sidebar {
+  position: fixed;
+  z-index: 999;
+  width: 14%;
+}
+
+.content {
+  width: 100vw;
+  transition: margin-left 0.3s ease;
+  margin-left: 14%;
+  height: 100vh;
+}
+
+.sidebarShrink {
+  margin-left: 10vw;
+}

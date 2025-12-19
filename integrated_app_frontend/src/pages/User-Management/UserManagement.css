@@ -1,0 +1,411 @@
+/* src/pages/UserManagement.css */
+.UserMan-dashboard-container {
+  background: #1e1e1e;
+  color: #fff;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.UserMan-main-content {
+  margin: auto;
+}
+
+.UserMan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.UserMan-header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.UserMan-refresh-btn {
+  background: #333;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.UserMan-settings-tabs {
+  display: flex;
+  border-bottom: 1px solid #444;
+  margin-bottom: 20px;
+}
+
+.UserMan-tab-btn {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #bbb;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.UserMan-tab-btn:hover {
+  color: #fff;
+}
+
+.UserMan-tab-btn.UserMan-active {
+  color: #3498db;
+  border-bottom-color: #3498db;
+}
+
+.UserMan-tab-pane.UserMan-active {
+  display: block;
+}
+
+.UserMan-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.UserMan-section-header h2 {
+  margin: 0;
+  color: #fff;
+}
+
+.UserMan-filters-section {
+  background: #333;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+.UserMan-filter-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.UserMan-filter-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: .9rem;
+  color: #bbb;
+}
+
+.UserMan-filter-group select,
+.UserMan-filter-group input {
+  width: 100%;
+  padding: 8px 12px;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.UserMan-table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.UserMan-settings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.UserMan-settings-table th,
+.UserMan-settings-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+.UserMan-settings-table th {
+  background: #333;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .8rem;
+  letter-spacing: .5px;
+}
+
+.UserMan-settings-table tr:hover {
+  background: #333;
+}
+
+.UserMan-role-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.UserMan-role-super_admin {
+  background-color: rgba(155, 89, 182, 0.2);
+  color: #9b59b6;
+}
+
+.UserMan-role-admin {
+  background-color: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+}
+
+.UserMan-role-user {
+  background-color: rgba(28, 160, 78, 0.2);
+  color: hsl(115, 61%, 38%);
+}
+
+.UserMan-access-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.UserMan-access-tag {
+  background: rgba(74, 111, 165, .2);
+  color: #075979;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: .7rem;
+}
+
+.UserMan-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 8px;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.UserMan-edit {
+  color: #4da6ff;
+  border: 1px solid #4da6ff;
+}
+
+.UserMan-delete {
+  color: #ff6666;
+  border: 1px solid #ff6666;
+}
+
+.UserMan-action-btn:hover {
+  opacity: 0.8;
+}
+
+.UserMan-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.UserMan-pagination button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  margin: 0 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.UserMan-pagination button:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+.UserMan-page-info {
+  margin: 0 10px;
+}
+
+.UserMan-modal-content {
+  padding: 2rem;
+  background: #2a2a2a !important;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 100%;
+  min-width: 400px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 1001;
+}
+
+/* Override react-modal default styles */
+.ReactModal__Content {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  inset: auto !important;
+}
+
+.UserMan-modal-content h2 {
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-align: center;
+}
+
+.UserMan-form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.UserMan-form-group label {
+  margin-bottom: .5rem;
+  color: #fff;
+}
+
+.UserMan-form-group input,
+.UserMan-form-group select {
+  padding: .8rem;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background: #3a3a3a;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.UserMan-form-group .UserMan-error {
+  color: #ff6b6b;
+  font-size: .9rem;
+  margin-top: .3rem;
+}
+
+.UserMan-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.UserMan-form-row .UserMan-form-group.UserMan-half-width {
+  flex: 1 1 calc(50% - .5rem);
+  box-sizing: border-box;
+}
+
+.UserMan-form-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.UserMan-btn {
+  padding: .8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.UserMan-btn-primary {
+  background: #4c77af;
+  color: #fff;
+}
+
+.UserMan-btn-secondary {
+  background: #757575;
+  color: #fff;
+}
+
+.UserMan-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.UserMan-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #444;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.UserMan-dialog-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.UserMan-close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 24px;
+  line-height: 1;
+  transition: color .3s;
+}
+
+.UserMan-close-button:hover {
+  color: #f44336;
+}
+
+.UserMan-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.UserMan-modal-content::-webkit-scrollbar-track {
+  background: #3d3c3c;
+}
+
+.UserMan-modal-content::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+.UserMan-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Table column specific styles */
+.UserMan-settings-table td:nth-child(3),
+.UserMan-settings-table td:nth-child(5),
+.UserMan-settings-table td:nth-child(10),
+.UserMan-settings-table td:nth-child(9) {
+  max-width: 250px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.UserMan-apply-filters,
+.UserMan-reset-filters {
+  height: 36px;
+}
+
+.UserMan-prev-page,
+.UserMan-next-page {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .UserMan-modal-content {
+    width: 90%;
+    min-width: 300px;
+  }
+}

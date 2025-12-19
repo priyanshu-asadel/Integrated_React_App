@@ -1,0 +1,640 @@
+:root {
+  --Dashboard-bg-primary: #0a0a0a;
+  --Dashboard-bg-secondary: #1a1a1a;
+  --Dashboard-bg-tertiary: #262626;
+  --Dashboard-bg-accent: #2f2f2f;
+  --Dashboard-text-primary: #ffffff;
+  --Dashboard-text-secondary: #b0b0b0;
+  --Dashboard-text-muted: #6b7280;
+  --Dashboard-accent-color: #ffffff;
+  --Dashboard-accent-hover: #574eb8;
+  --Dashboard-accent-glow: rgba(79, 70, 229, 0.15);
+  --Dashboard-danger-color: #dc2626;
+  --Dashboard-success-color: #22c55e;
+  --Dashboard-warning-color: #f59e0b;
+  --Dashboard-info-color: #06b6d4;
+  --Dashboard-border-color: #3f3f3f;
+  --Dashboard-border-light: #4b5563;
+  --Dashboard-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --Dashboard-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.2);
+  --Dashboard-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.25);
+  --Dashboard-gradient-primary: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  --Dashboard-gradient-card: linear-gradient(135deg, #252525 0%, #262626 100%);
+  --Dashboard-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --Dashboard-border-radius: 12px;
+  --Dashboard-border-radius-sm: 8px;
+  --Dashboard-border-radius-lg: 16px;
+  /* New: Fluid font size scaling */
+  --base-font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.Dashboard-container {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--Dashboard-bg-primary);
+  font-size: var(--base-font-size);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.Dashboard-main-content {
+  /* margin-left: 15px; */
+  box-sizing: border-box;
+  padding: 1rem;
+  width: 100%;
+}
+
+.Dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem 1.25rem;
+  flex-wrap: wrap; /* Allow header to wrap on small screens */
+}
+
+.Dashboard-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.Dashboard-mobile-menu-toggle {
+  display: none;
+  background: var(--Dashboard-bg-tertiary);
+  padding: 0.5rem;
+  color: var(--Dashboard-text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--Dashboard-border-radius-sm);
+}
+
+.Dashboard-mobile-menu-toggle:hover {
+  background: var(--Dashboard-accent-glow);
+}
+
+.Dashboard-header h1 {
+  font-size: clamp(1.5rem, 5vw, 2.2rem); /* Fluid typography */
+  font-weight: 800;
+  background: var(--Dashboard-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.Dashboard-header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap; /* Ensure buttons wrap on small screens */
+}
+
+.Dashboard-refresh-btn {
+  background: var(--Dashboard-gradient-card);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--Dashboard-border-radius);
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  cursor: pointer;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  font-weight: 500;
+  color: var(--Dashboard-text-primary);
+  transition: var(--Dashboard-transition);
+  min-width: 120px; /* Ensure touch-friendly size */
+}
+
+.Dashboard-refresh-btn:hover {
+  transform: translateY(-2px);
+}
+
+.Dashboard-refresh-btn i {
+  color: var(--Dashboard-accent-color);
+}
+
+.Dashboard-refresh-btn:hover i {
+  transform: rotate(180deg);
+}
+
+.Dashboard-notifications {
+  position: relative;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0.75rem;
+  background: var(--Dashboard-gradient-card);
+  border-radius: var(--Dashboard-border-radius);
+  min-width: 44px; /* Touch-friendly size */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Dashboard-notifications:hover {
+  border-color: var(--Dashboard-danger-color);
+}
+
+.Dashboard-notifications i {
+  color: var(--Dashboard-text-primary);
+}
+
+.Dashboard-notifications:hover i {
+  color: var(--Dashboard-danger-color);
+  animation: Dashboard-shake 0.5s ease-in-out;
+}
+
+.Dashboard-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: var(--Dashboard-danger-color);
+  color: white;
+  border-radius: 10px;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.Dashboard-section {
+  background: var(--Dashboard-gradient-card);
+  border-radius: var(--Dashboard-border-radius-lg);
+  padding: clamp(1rem, 3vw, 1.75rem);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--Dashboard-shadow-lg);
+  width: 100%;
+  box-sizing: border-box;
+  transition: var(--Dashboard-transition);
+}
+
+.Dashboard-section:hover {
+  transform: translateY(-2px);
+}
+
+.Dashboard-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.Dashboard-section-header h2 {
+  font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+  font-weight: 700;
+  color: var(--Dashboard-text-primary);
+  margin: 0;
+}
+
+.Dashboard-section-header h2::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: var(--Dashboard-accent-color);
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.Dashboard-view-all {
+  color: var(--Dashboard-accent-color);
+  text-decoration: none;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--Dashboard-border-radius-sm);
+  transition: var(--Dashboard-transition);
+}
+
+.Dashboard-view-all:hover {
+  background: var(--Dashboard-accent-glow);
+}
+
+.Dashboard-alert-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.Dashboard-stat-card {
+  background: var(--Dashboard-bg-accent);
+  padding: 1.5rem;
+  border-radius: var(--Dashboard-border-radius);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.Dashboard-stat-card h3 {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  color: var(--Dashboard-text-primary);
+  margin: 0 0 1rem 0;
+}
+
+.Dashboard-chart-container {
+  background: var(--Dashboard-bg-accent);
+  border-radius: var(--Dashboard-border-radius-sm);
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  min-height: 200px; /* Ensure charts have minimum height */
+}
+
+.Dashboard-alert-table-container {
+  border-radius: var(--Dashboard-border-radius);
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.Dashboard-alert-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  table-layout: auto; /* Allow table to adjust column widths */
+}
+
+.Dashboard-alert-table th,
+.Dashboard-alert-table td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--Dashboard-border-color);
+  background: var(--Dashboard-bg-accent);
+  white-space: nowrap; /* Prevent text wrapping in cells */
+}
+
+.Dashboard-alert-table th {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(0.7rem, 2vw, 0.75rem);
+  color: var(--Dashboard-text-secondary);
+}
+
+.Dashboard-alert-table tr:hover {
+  background: var(--Dashboard-bg-tertiary);
+}
+
+.Dashboard-status-badge {
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: clamp(0.7rem, 2vw, 0.75rem);
+  font-weight: 600;
+}
+
+.Dashboard-status-resolved {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--Dashboard-success-color);
+}
+
+.Dashboard-status-pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--Dashboard-warning-color);
+}
+
+.Dashboard-status-unresolved {
+  background: rgba(220, 38, 38, 0.15);
+  color: var(--Dashboard-danger-color);
+}
+
+.Dashboard-action-btn {
+  background: var(--Dashboard-bg-tertiary);
+  border: 1px solid var(--Dashboard-border-color);
+  color: var(--Dashboard-text-primary);
+  padding: 0.5rem;
+  border-radius: var(--Dashboard-border-radius-sm);
+  cursor: pointer;
+  transition: var(--Dashboard-transition);
+  min-width: 44px; /* Touch-friendly */
+  min-height: 44px;
+}
+
+.Dashboard-action-btn:hover {
+  background: var(--Dashboard-accent-color);
+  color: var(--Dashboard-bg-primary);
+}
+
+.Dashboard-alert-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.Dashboard-alert-card {
+  background: var(--Dashboard-bg-accent);
+  padding: 1.25rem;
+  border-radius: var(--Dashboard-border-radius);
+  border: 1px solid var(--Dashboard-border-light);
+  box-sizing: border-box;
+  transition: var(--Dashboard-transition);
+}
+
+.Dashboard-alert-card:hover {
+  transform: translateY(-2px);
+}
+
+.Dashboard-alert-card h3 {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  font-weight: 600;
+  color: var(--Dashboard-text-primary);
+  margin: 0 0 1rem 0;
+}
+
+.Dashboard-alert-count {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.Dashboard-total strong,
+.Dashboard-unresolved strong {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  font-weight: 800;
+  display: block;
+}
+
+.Dashboard-total {
+  color: var(--Dashboard-text-primary);
+}
+
+.Dashboard-unresolved {
+  color: var(--Dashboard-danger-color);
+}
+
+.Dashboard-camera-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.Dashboard-camera-card {
+  background: var(--Dashboard-bg-accent);
+  border-radius: var(--Dashboard-border-radius);
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: var(--Dashboard-transition);
+}
+
+.Dashboard-camera-card:hover {
+  transform: translateY(-2px);
+}
+
+.Dashboard-camera-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: var(--Dashboard-bg-tertiary);
+}
+
+.Dashboard-camera-header h3 {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  font-weight: 600;
+  color: var(--Dashboard-text-primary);
+  margin: 0;
+}
+
+.Dashboard-camera-status {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.Dashboard-camera-status.Dashboard-active {
+  background: var(--Dashboard-success-color);
+  box-shadow: 0 0 8px var(--Dashboard-success-color);
+}
+
+.Dashboard-camera-status.Dashboard-inactive {
+  background: var(--Dashboard-danger-color);
+  box-shadow: 0 0 8px var(--Dashboard-danger-color);
+}
+
+.Dashboard-camera-feed {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: var(--Dashboard-bg-primary);
+  overflow: hidden;
+}
+
+.Dashboard-camera-feed img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.Dashboard-image-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--Dashboard-bg-tertiary);
+  color: var(--Dashboard-text-secondary);
+  z-index: 2;
+}
+
+.Dashboard-image-loading i {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--Dashboard-accent-color);
+}
+
+.Dashboard-image-loading span {
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+}
+
+.Dashboard-camera-offline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--Dashboard-bg-tertiary);
+  color: var(--Dashboard-text-secondary);
+  z-index: 1;
+}
+
+.Dashboard-camera-offline i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--Dashboard-danger-color);
+}
+
+.Dashboard-camera-offline span {
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  font-weight: 600;
+}
+
+@keyframes Dashboard-shake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .Dashboard-camera-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .Dashboard-alert-stats {
+    grid-template-columns: 1fr;
+  }
+  .Dashboard-camera-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .Dashboard-main-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 1rem;
+  }
+  .Dashboard-mobile-menu-toggle {
+    display: block;
+  }
+  .Dashboard-header {
+    padding: 0.75rem 1rem;
+  }
+  .Dashboard-section {
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .Dashboard-main-content {
+    padding: 0.75rem;
+  }
+  .Dashboard-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .Dashboard-header-actions {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .Dashboard-section {
+    padding: 1rem;
+  }
+  .Dashboard-alert-stats {
+    gap: 0.75rem;
+  }
+  .Dashboard-camera-grid {
+    grid-template-columns: 1fr;
+  }
+  .Dashboard-alert-cards {
+    grid-template-columns: 1fr;
+  }
+  .Dashboard-alert-table th,
+  .Dashboard-alert-table td {
+    padding: 0.75rem 1rem;
+    font-size: clamp(0.75rem, 2.2vw, 0.85rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .Dashboard-container {
+    font-size: calc(var(--base-font-size) * 0.9); /* Slightly smaller base font */
+  }
+  .Dashboard-section-header {
+    flex-direction: column;
+    gap: 0.625rem;
+    align-items: flex-start;
+  }
+  .Dashboard-view-all {
+    align-self: flex-end;
+    font-size: clamp(0.75rem, 2.2vw, 0.85rem);
+    padding: 0.375rem 0.75rem;
+  }
+  .Dashboard-header h1 {
+    font-size: clamp(1.4rem, 4.5vw, 1.8rem);
+  }
+  .Dashboard-section-header h2 {
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
+  }
+  .Dashboard-stat-card h3 {
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+  }
+  .Dashboard-camera-card {
+    min-width: 100%;
+  }
+  .Dashboard-camera-header h3 {
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  }
+  .Dashboard-alert-table th,
+  .Dashboard-alert-table td {
+    padding: 0.625rem 0.75rem;
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+  }
+  .Dashboard-total strong,
+  .Dashboard-unresolved strong {
+    font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .Dashboard-container {
+    font-size: calc(var(--base-font-size) * 0.85);
+  }
+  .Dashboard-camera-grid {
+    grid-template-columns: 1fr;
+  }
+  .Dashboard-alert-table th,
+  .Dashboard-alert-table td {
+    padding: 0.5rem 0.625rem;
+    font-size: clamp(0.65rem, 1.8vw, 0.75rem);
+  }
+  .Dashboard-refresh-btn,
+  .Dashboard-notifications {
+    padding: 0.5rem;
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+  }
+}
+
+/* High-density displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .Dashboard-camera-feed img {
+    image-rendering: crisp-edges; /* Improve image quality */
+  }
+}

@@ -1,0 +1,132 @@
+/* src/pages/Area-Management/modals/Modal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.company-form-container {
+  margin: 0 auto;
+  padding: 2rem;
+  background: #2a2a2a;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.company-form-container h2 {
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #444;
+  margin-bottom: 1.5rem;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 24px;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #f44336;
+}
+
+/* ---------- FORM FIELDS (Left-aligned, no right shift) ---------- */
+.form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensures labels & inputs start from left */
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+  width: 100%;
+  text-align: left;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #3a3a3a;
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-group input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- ACTION BUTTONS (Smaller, Right-aligned) ---------- */
+.form-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;   /* Aligns buttons to the right */
+  gap: 12px;                   /* Space between buttons */
+}
+
+.btn {
+  padding: 0.7rem 1.4rem;      /* Smaller than full-width */
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-width: 90px;             /* Prevents shrinking too much */
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #45a049;
+}
+
+.btn-secondary {
+  background-color: #757575;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #616161;
+}

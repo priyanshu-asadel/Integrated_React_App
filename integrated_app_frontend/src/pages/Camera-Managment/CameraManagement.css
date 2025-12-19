@@ -1,0 +1,493 @@
+/* src/pages/CameraManagement.css */
+.CamMan-dashboard-container {
+  background: #1e1e1e;
+  color: #fff;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.CamMan-main-content {
+  margin: auto;
+}
+
+.CamMan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 30px;
+  font-weight: 2.5rem;
+}
+
+.CamMan-header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.CamMan-refresh-btn {
+  background: #333;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.CamMan-settings-tabs {
+  display: flex;
+  flex-wrap: wrap; /* Allow tabs to wrap on small screens */
+  border-bottom: 1px solid #444;
+  margin-bottom: 20px;
+}
+
+.CamMan-tab-btn {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #bbb;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.CamMan-tab-btn:hover {
+  color: #fff;
+}
+
+.CamMan-tab-btn.CamMan-active {
+  color: #4c7aaf;
+  border-bottom-color: #6296c7;
+}
+
+.CamMan-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.CamMan-section-header h2 {
+  margin: 0;
+}
+
+.CamMan-filters-section {
+  background: #333;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+.CamMan-filter-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.CamMan-filter-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: .9rem;
+  color: #bbb;
+}
+
+.CamMan-filter-group select,
+.CamMan-filter-group input {
+  width: 100%;
+  padding: 8px 12px;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.CamMan-table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.CamMan-settings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.CamMan-settings-table th,
+.CamMan-settings-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+.CamMan-settings-table th {
+  background: #333;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .8rem;
+  letter-spacing: .5px;
+}
+
+.CamMan-settings-table tr:hover {
+  background: #333;
+}
+
+.CamMan-status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.CamMan-status-active {
+  background: #46923c;
+}
+
+.CamMan-status-inactive {
+  background: #ff6b6b;
+}
+
+.CamMan-access-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.CamMan-access-tag {
+  background: rgba(74, 111, 165, .2);
+  color: #6296c7;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: .8rem;
+  font-weight: 500;
+}
+
+.CamMan-action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 8px;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.CamMan-edit {
+  color: #4da6ff;
+  border: 1px solid #4da6ff;
+}
+
+.CamMan-delete {
+  color: #ff6666;
+  border: 1px solid #ff6666;
+}
+
+.CamMan-action-btn:hover {
+  opacity: 0.8;
+}
+
+.CamMan-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.CamMan-pagination button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  margin: 0 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.CamMan-pagination button:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+/* --- Modal Styles --- */
+.CamMan-modal-content {
+  padding: 2rem;
+  background: #2a2a2a !important; 
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 80%; 
+  min-width: 400px; 
+  max-width: 900px; 
+  margin: 0 auto; 
+  box-sizing: border-box;
+  opacity: 1 !important; 
+  position: relative;
+  z-index: 1001; 
+}
+
+.ReactModal__Content {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  inset: auto !important; 
+}
+
+.CamMan-modal-content h2 {
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-align: center;
+}
+
+.CamMan-form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.CamMan-form-group label {
+  margin-bottom: .5rem;
+  color: #fff;
+}
+
+.CamMan-form-group input,
+.CamMan-form-group select {
+  padding: .8rem;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background: #3a3a3a;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.CamMan-form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.CamMan-form-row .CamMan-form-group.CamMan-half-width {
+  flex: 1 1 calc(50% - .5rem);
+  box-sizing: border-box;
+}
+
+.CamMan-form-row .CamMan-form-group.CamMan-third-width {
+  flex: 1 1 calc(33.333% - 1rem);
+  box-sizing: border-box;
+}
+
+.CamMan-form-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CamMan-btn {
+  padding: .8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.CamMan-btn-primary {
+  background: #4c82af;
+  color: #fff;
+}
+
+.CamMan-btn-secondary {
+  background: #757575;
+  color: #fff;
+}
+
+.CamMan-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.CamMan-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #555; 
+  position: relative;
+}
+
+.CamMan-dialog-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff; 
+}
+
+.CamMan-close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: transparent;
+  border: none;
+  color: #aaa; 
+  cursor: pointer;
+  padding: 8px;
+  font-size: 24px;
+  line-height: 1;
+  transition: color .3s;
+}
+
+.CamMan-close-button:hover {
+  color: #f44336;
+}
+
+.CamMan-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.CamMan-modal-content::-webkit-scrollbar-track {
+  background: #3d3c3c;
+}
+.CamMan-modal-content::-webkit-scrollbar-thumb {
+  background: #555; 
+  border-radius: 4px;
+}
+
+.CamMan-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* --- NEW STYLES for Modal Fieldset & Label Table --- */
+.CamMan-form-fieldset {
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  background: #3a3a3a;
+}
+
+.CamMan-form-fieldset legend {
+  padding: 0 .5rem;
+  font-weight: 600;
+  color: #4c82af;
+  font-size: 1.1rem;
+}
+
+.CamMan-help-text {
+  font-size: 0.8rem;
+  color: #bbb;
+  margin-top: 4px;
+}
+
+.CamMan-input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.CamMan-input-group input {
+  flex-grow: 1;
+}
+
+.CamMan-input-group button {
+  padding: .8rem;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.CamMan-label-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.CamMan-label-table th,
+.CamMan-label-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid #555;
+}
+
+.CamMan-label-table th {
+  font-size: 0.85rem;
+  color: #bbb;
+}
+
+.CamMan-label-table input[type="number"] {
+  width: 100px;
+  padding: .5rem;
+  font-size: 0.9rem;
+  background-color: #2a2a2a; /* Match other inputs */
+  border: 1px solid #555;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.CamMan-btn-icon-delete {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.CamMan-btn-icon-delete:hover {
+  color: #ff4040;
+}
+
+.CamMan-divider {
+  border: 0;
+  border-top: 1px solid #555;
+  margin: 1.5rem 0;
+}
+
+.CamMan-heading {
+  text-align: center;
+  font-size: large;
+  color: #e0e0e0;
+  margin: 10px 0;
+}
+
+.CamMan-canvas {
+  width: 90%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border: 2px dashed #555;
+  cursor: crosshair;
+}
+
+.CamMan-verify-button {
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .CamMan-form-row .CamMan-form-group.CamMan-third-width {
+    flex-basis: calc(50% - .5rem); /* Two-column on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .CamMan-modal-content {
+    width: 90%; 
+    min-width: 300px;
+  }
+  .CamMan-form-row .CamMan-form-group.CamMan-half-width {
+    flex-basis: 100%; /* Stack fields on mobile */
+  }
+  .CamMan-form-row .CamMan-form-group.CamMan-third-width {
+    flex-basis: 100%; /* Stack fields on mobile */
+  }
+  .CamMan-label-table input[type="number"] {
+    width: 80px; /* Smaller inputs on mobile */
+  }
+}
